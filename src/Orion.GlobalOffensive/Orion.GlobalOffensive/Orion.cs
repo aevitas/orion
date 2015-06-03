@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2015 aevitas
 // See the file LICENSE for copying permission.
 
+using System;
 using System.Diagnostics;
 using BlueRain;
 using Orion.GlobalOffensive.Objects;
@@ -25,6 +26,19 @@ namespace Orion.GlobalOffensive
 		public static LocalPlayer Me { get; private set; }
 
 		/// <summary>
+		/// Gets the current object manager.
+		/// </summary>
+		public static ObjectManager Objects { get; private set; }
+
+		/// <summary>
+		/// Gets the current instance of the game client.
+		/// </summary>
+		public static GameClient Client { get; private set; }
+
+		public static IntPtr ClientBase { get; private set; }
+		public static IntPtr EngineBase { get; private set; }
+
+		/// <summary>
 		/// Initializes Orion by attaching to the specified CSGO process.
 		/// </summary>
 		/// <param name="process">The process.</param>
@@ -34,6 +48,9 @@ namespace Orion.GlobalOffensive
 				return;
 
 			Memory = new ExternalProcessMemory(process, true);
+
+			ClientBase = Memory.GetModule("client.dll").BaseAddress;
+			EngineBase = Memory.GetModule("engine.dll").BaseAddress;
 
 			_isAttached = true;
 		}

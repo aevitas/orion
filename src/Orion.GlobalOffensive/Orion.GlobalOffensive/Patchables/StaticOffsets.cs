@@ -12,5 +12,7 @@ namespace Orion.GlobalOffensive.Patchables
 		Health = 0xFC,
 		Dormant = 0xE9,
 		Index = 0x64,
+		Flags = 0x100,
+		LifeState = 0x25B,
 	}
 }

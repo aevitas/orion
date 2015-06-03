@@ -59,6 +59,17 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
+		/// Reads a member of the specified type at the specified offset.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="offset">The offset.</param>
+		/// <returns></returns>
+		protected T ReadMember<T>(RelativeOffsets offset) where T : struct
+		{
+			return ReadMember<T>((int) offset);
+		}
+
+		/// <summary>
 		/// Gets a value indicating whether this instance is valid.
 		/// </summary>
 		/// <value>

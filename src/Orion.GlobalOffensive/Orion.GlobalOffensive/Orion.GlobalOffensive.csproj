@@ -83,11 +83,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
+    <Compile Include="GameClient.cs" />
+    <Compile Include="ObjectManager.cs" />
     <Compile Include="Objects\BaseEntity.cs" />
     <Compile Include="Objects\LocalPlayer.cs" />
     <Compile Include="Objects\NativeObject.cs" />
     <Compile Include="Orion.cs" />
-    <Compile Include="Patchables\FunctionOffsets.cs" />
+    <Compile Include="Patchables\RelativeOffsets.cs" />
     <Compile Include="Patchables\StaticOffsets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,6 +12,10 @@ namespace Orion.GlobalOffensive.Objects
 	/// </summary>
 	public class BaseEntity : NativeObject
 	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BaseEntity"/> class.
+		/// </summary>
+		/// <param name="baseAddress">The base address.</param>
 		protected BaseEntity(IntPtr baseAddress) : base(baseAddress)
 		{
 		}
@@ -61,6 +65,17 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
+		/// Gets the entity's flags.
+		/// </summary>
+		/// <value>
+		/// The flags.
+		/// </value>
+		public int Flags
+		{
+			get { return ReadMember<int>(StaticOffsets.Flags); }
+		}
+
+		/// <summary>
 		/// Gets a value indicating whether this entity is dormant.
 		/// </summary>
 		/// <value>
@@ -69,6 +84,17 @@ namespace Orion.GlobalOffensive.Objects
 		public bool IsDormant
 		{
 			get { return ReadMember<int>(StaticOffsets.Dormant) == 1; }
+		}
+
+		/// <summary>
+		/// Gets a value indicating whether this entity is alive.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this instance is alive; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsAlive
+		{
+			get { return ReadMember<byte>(StaticOffsets.LifeState) == 0; }
 		}
 
 		/// <summary>
