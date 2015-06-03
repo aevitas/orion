@@ -28,7 +28,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public Matrix4x4 ViewMatrix
 		{
-			get { return ReadMember<Matrix4x4>(RelativeOffsets.ViewMatrix); }
+			get { return ReadField<Matrix4x4>(RelativeOffsets.ViewMatrix); }
 		}
 	}
 }

@@ -42,7 +42,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <typeparam name="T"></typeparam>
 		/// <param name="offset">The offset.</param>
 		/// <returns></returns>
-		protected T ReadMember<T>(int offset) where T : struct
+		protected T ReadField<T>(int offset) where T : struct
 		{
 			return Orion.Memory.Read<T>(BaseAddress + offset);
 		}
@@ -53,9 +53,9 @@ namespace Orion.GlobalOffensive.Objects
 		/// <typeparam name="T"></typeparam>
 		/// <param name="offset">The offset.</param>
 		/// <returns></returns>
-		protected T ReadMember<T>(StaticOffsets offset) where T : struct
+		protected T ReadField<T>(StaticOffsets offset) where T : struct
 		{
-			return ReadMember<T>((int) offset);
+			return ReadField<T>((int) offset);
 		}
 
 		/// <summary>
@@ -64,9 +64,9 @@ namespace Orion.GlobalOffensive.Objects
 		/// <typeparam name="T"></typeparam>
 		/// <param name="offset">The offset.</param>
 		/// <returns></returns>
-		protected T ReadMember<T>(RelativeOffsets offset) where T : struct
+		protected T ReadField<T>(RelativeOffsets offset) where T : struct
 		{
-			return ReadMember<T>((int) offset);
+			return ReadField<T>((int) offset);
 		}
 
 		/// <summary>

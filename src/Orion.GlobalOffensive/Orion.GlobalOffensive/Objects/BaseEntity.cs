@@ -28,7 +28,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public int Id
 		{
-			get { return ReadMember<int>(StaticOffsets.Index); }
+			get { return ReadField<int>(StaticOffsets.Index); }
 		}
 
 		/// <summary>
@@ -39,7 +39,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public Vector3 Position
 		{
-			get { return ReadMember<Vector3>(StaticOffsets.Position); }
+			get { return ReadField<Vector3>(StaticOffsets.Position); }
 		}
 
 		/// <summary>
@@ -50,7 +50,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public int Health
 		{
-			get { return ReadMember<int>(StaticOffsets.Health); }
+			get { return ReadField<int>(StaticOffsets.Health); }
 		}
 
 		/// <summary>
@@ -61,7 +61,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public int Armor
 		{
-			get { return ReadMember<int>(StaticOffsets.Armor); }
+			get { return ReadField<int>(StaticOffsets.Armor); }
 		}
 
 		/// <summary>
@@ -72,7 +72,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public int Flags
 		{
-			get { return ReadMember<int>(StaticOffsets.Flags); }
+			get { return ReadField<int>(StaticOffsets.Flags); }
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public bool IsDormant
 		{
-			get { return ReadMember<int>(StaticOffsets.Dormant) == 1; }
+			get { return ReadField<int>(StaticOffsets.Dormant) == 1; }
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public bool IsAlive
 		{
-			get { return ReadMember<byte>(StaticOffsets.LifeState) == 0; }
+			get { return ReadField<byte>(StaticOffsets.LifeState) == 0; }
 		}
 
 		/// <summary>
@@ -105,7 +105,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// </value>
 		public PlayerTeam Team
 		{
-			get { return (PlayerTeam) ReadMember<int>(StaticOffsets.Team); }
+			get { return (PlayerTeam) ReadField<int>(StaticOffsets.Team); }
 		}
 
 		/// <summary>
