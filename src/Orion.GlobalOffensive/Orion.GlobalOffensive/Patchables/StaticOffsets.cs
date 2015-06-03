@@ -6,6 +6,7 @@ namespace Orion.GlobalOffensive.Patchables
 	// Contains offsets that hardly ever, if ever at all, change.
 	public enum StaticOffsets
 	{
+		// Entity
 		Position = 0x134,
 		Team = 0xF0,
 		Armor = 0x23B0,
@@ -14,5 +15,9 @@ namespace Orion.GlobalOffensive.Patchables
 		Index = 0x64,
 		Flags = 0x100,
 		LifeState = 0x25B,
+
+		// GameClient
+		LocalPlayerIndex = 0x160,
+		GameState = 0xE8,
 	}
 }

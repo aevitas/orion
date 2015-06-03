@@ -64,7 +64,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <typeparam name="T"></typeparam>
 		/// <param name="offset">The offset.</param>
 		/// <returns></returns>
-		protected T ReadField<T>(RelativeOffsets offset) where T : struct
+		protected T ReadField<T>(GameOffsets offset) where T : struct
 		{
 			return ReadField<T>((int) offset);
 		}

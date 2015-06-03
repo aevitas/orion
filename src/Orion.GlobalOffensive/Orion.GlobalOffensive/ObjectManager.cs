@@ -10,20 +10,25 @@ namespace Orion.GlobalOffensive
 	public class ObjectManager : NativeObject
 	{
 		// Obtain this dynamically from the game at a later stage.
-		private int _capacity = 128;
-		private readonly List<BaseEntity> _objects = new List<BaseEntity>();
+		private int _capacity;
+		private int _ticksPerSecond;
+		private readonly List<BaseEntity> _players = new List<BaseEntity>();
 
 		/// <summary>
 		/// Gets the current objects in the game world.
 		/// </summary>
-		public IReadOnlyList<BaseEntity> Objects { get { return _objects; } } 
+		public IReadOnlyList<BaseEntity> Players { get { return _players; } }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ObjectManager"/> class.
+		/// Initializes a new instance of the <see cref="ObjectManager" /> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
-		public ObjectManager(IntPtr baseAddress) : base(baseAddress)
+		/// <param name="capacity">The capacity.</param>
+		/// <param name="ticksPerSecond">The ticks per second.</param>
+		public ObjectManager(IntPtr baseAddress, int capacity, int ticksPerSecond = 10) : base(baseAddress)
 		{
+			_capacity = capacity;
+			_ticksPerSecond = ticksPerSecond;
 		}
 
 		private DateTime _lastUpdate = DateTime.MinValue;
@@ -39,6 +44,8 @@ namespace Orion.GlobalOffensive
 			// don't bother checking for anything below that number.
 			if (DateTime.Now - _lastUpdate < TimeSpan.FromMilliseconds(500))
 				return;
+
+
 
 			_lastUpdate = DateTime.Now;
 		}

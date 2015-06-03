@@ -4,7 +4,7 @@
 namespace Orion.GlobalOffensive.Patchables
 {
 	// Offsets that change at least once per build, and are platform specific.
-	public enum RelativeOffsets
+	public enum GameOffsets
 	{
 		ViewMatrix = 0x04a0a0e4,
 		EntityList = 0x04a14b54,
