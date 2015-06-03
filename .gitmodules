@@ -1,0 +1,3 @@
+[submodule "libs/bluerain"]
+	path = libs/bluerain
+	url = https://github.com/Aevitas/bluerain.git
