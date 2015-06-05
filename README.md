@@ -46,7 +46,7 @@ API examples and sample projects will be included later down the line.
 While we welcome all contributions and/or pull requests to the code base, please take the following in regard:
 * We like to think we maintain a particularly high standard when it comes to code quality. When submitting a PR, please respect this. Requests of insufficient quality code may be rejected at the author's discretion.
 * If your pull requests addresses an issue in the code, please make sure to provide a link to an issue [in the project's issue tracker](https://github.com/aevitas/orion/issues) of what issue your PR addresses specifically, and how we can verify your PR actually fixes it.
-* 
-# development
+
+# future development
 
 Given sufficient demand, this code base will be extended into a fully featured modification for CS:GO in due time. This does assume there are more people interested in it than just the original author of the code.
