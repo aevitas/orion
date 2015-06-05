@@ -93,7 +93,7 @@
     <Compile Include="Objects\LocalPlayer.cs" />
     <Compile Include="Objects\NativeObject.cs" />
     <Compile Include="Orion.cs" />
-    <Compile Include="Patchables\GameOffsets.cs" />
+    <Compile Include="Patchables\BaseOffsets.cs" />
     <Compile Include="Patchables\StaticOffsets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

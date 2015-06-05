@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2015 aevitas
+// See the file LICENSE for copying permission.
+
+using System;
 using Orion.GlobalOffensive.Objects;
 using Orion.GlobalOffensive.Patchables;
 

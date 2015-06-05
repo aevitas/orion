@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using BlueRain;
 using Orion.GlobalOffensive.Objects;
+using Orion.GlobalOffensive.Patchables;
 
 namespace Orion.GlobalOffensive
 {
@@ -18,7 +19,7 @@ namespace Orion.GlobalOffensive
 		/// <summary>
 		/// Gets the memory instance of the process Orion is currently attached to.
 		/// </summary>
-		public static ExternalProcessMemory Memory { get; private set; }
+		public static NativeMemory Memory { get; private set; }
 
 		/// <summary>
 		/// Gets the local player.
@@ -42,15 +43,31 @@ namespace Orion.GlobalOffensive
 		/// Initializes Orion by attaching to the specified CSGO process.
 		/// </summary>
 		/// <param name="process">The process.</param>
-		public static void Attach(Process process)
+		/// <param name="isInjected">if set to <c>true</c> [is injected].</param>
+		public static void Attach(Process process, bool isInjected = false)
 		{
 			if (_isAttached)
 				return;
 
-			Memory = new ExternalProcessMemory(process, true);
+			// We won't require the injector for now - we're completely passive.
+			if (isInjected)
+				Memory = new LocalProcessMemory(process);
+			else
+			{
+				Memory = new ExternalProcessMemory(process);
+			}
 
 			ClientBase = Memory.GetModule("client.dll").BaseAddress;
 			EngineBase = Memory.GetModule("engine.dll").BaseAddress;
+
+			Objects = new ObjectManager(ClientBase + (int) BaseOffsets.EntityList, 128);
+
+			var enginePtr = Memory.Read<IntPtr>(EngineBase + (int) BaseOffsets.EnginePtr);
+
+			if (enginePtr == IntPtr.Zero)
+				throw new Exception("Couldn't find Engine Ptr - are you sure your offsets are up to date?");
+
+			Client = new GameClient(enginePtr);
 
 			_isAttached = true;
 		}
