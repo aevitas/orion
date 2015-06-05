@@ -14,6 +14,11 @@ Project goals:
 * [System.Numerics.Vectors](https://msdn.microsoft.com/en-us/library/dn858218%28v=vs.111%29.aspx) is required for Vectors and Matrices. A copy of the library can be obtained via NuGet and is included in Orion when built.
 * [BlueRain](https://github.com/aevitas/bluerain) is required for the memory manipulation that makes the entire project possible in the first place. A binary is included in the `libs` directory, compilation from source is optional.
 
+License
+=====
+
+Orion is licensed under the very permissive Apache 2.0 license. Any submodules or dependencies may be under different licenses.
+
 # API
 
 Orion's API is meant to be intuitive and easy to use. Most of the framework components can be accessed through the `Orion` class, after `Attach` has been called to initialize the framework for a given process.
