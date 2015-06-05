@@ -16,7 +16,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// Initializes a new instance of the <see cref="BaseEntity"/> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
-		protected BaseEntity(IntPtr baseAddress) : base(baseAddress)
+		internal BaseEntity(IntPtr baseAddress) : base(baseAddress)
 		{
 		}
 

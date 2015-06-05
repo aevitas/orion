@@ -19,5 +19,8 @@ namespace Orion.GlobalOffensive.Patchables
 		// GameClient
 		LocalPlayerIndex = 0x160,
 		GameState = 0xE8,
+
+		// EntityList/ObjectManager
+		EntitySize = 0x10,
 	}
 }

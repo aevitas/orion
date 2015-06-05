@@ -8,6 +8,7 @@ namespace Orion.GlobalOffensive.Patchables
 	{
 		ViewMatrix = 0x4a0c164,
 		EntityList = 0x4a16bd4,
-		EnginePtr = 0x5CE1C4,
+		EnginePtr = 0x5ce1c4,
+		LocalPlayer = 0xa74c9c,
 	}
 }

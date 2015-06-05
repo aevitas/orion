@@ -16,7 +16,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// Initializes a new instance of the <see cref="LocalPlayer"/> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
-		protected LocalPlayer(IntPtr baseAddress) : base(baseAddress)
+		internal LocalPlayer(IntPtr baseAddress) : base(baseAddress)
 		{
 		}
 
