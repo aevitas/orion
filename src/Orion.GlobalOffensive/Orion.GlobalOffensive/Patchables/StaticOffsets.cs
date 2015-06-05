@@ -21,6 +21,6 @@ namespace Orion.GlobalOffensive.Patchables
 		GameState = 0xE8,
 
 		// EntityList/ObjectManager
-		EntitySize = 0x10,
+		EntitySize = 0x10
 	}
 }

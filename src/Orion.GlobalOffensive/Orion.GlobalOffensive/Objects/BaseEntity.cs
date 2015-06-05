@@ -8,12 +8,12 @@ using Orion.GlobalOffensive.Patchables;
 namespace Orion.GlobalOffensive.Objects
 {
 	/// <summary>
-	/// Base type for all entities in the game.
+	///     Base type for all entities in the game.
 	/// </summary>
 	public class BaseEntity : NativeObject
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="BaseEntity"/> class.
+		///     Initializes a new instance of the <see cref="BaseEntity" /> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
 		internal BaseEntity(IntPtr baseAddress) : base(baseAddress)
@@ -21,10 +21,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets the identifier.
+		///     Gets the identifier.
 		/// </summary>
 		/// <value>
-		/// The identifier.
+		///     The identifier.
 		/// </value>
 		public int Id
 		{
@@ -32,10 +32,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets this entity's position.
+		///     Gets this entity's position.
 		/// </summary>
 		/// <value>
-		/// The position.
+		///     The position.
 		/// </value>
 		public Vector3 Position
 		{
@@ -43,10 +43,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets this entity's health.
+		///     Gets this entity's health.
 		/// </summary>
 		/// <value>
-		/// The health.
+		///     The health.
 		/// </value>
 		public int Health
 		{
@@ -54,10 +54,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets this entity's armor.
+		///     Gets this entity's armor.
 		/// </summary>
 		/// <value>
-		/// The armor.
+		///     The armor.
 		/// </value>
 		public int Armor
 		{
@@ -65,10 +65,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets the entity's flags.
+		///     Gets the entity's flags.
 		/// </summary>
 		/// <value>
-		/// The flags.
+		///     The flags.
 		/// </value>
 		public int Flags
 		{
@@ -76,10 +76,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether this entity is dormant.
+		///     Gets a value indicating whether this entity is dormant.
 		/// </summary>
 		/// <value>
-		/// <c>true</c> if this instance is dormant; otherwise, <c>false</c>.
+		///     <c>true</c> if this instance is dormant; otherwise, <c>false</c>.
 		/// </value>
 		public bool IsDormant
 		{
@@ -87,10 +87,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether this entity is alive.
+		///     Gets a value indicating whether this entity is alive.
 		/// </summary>
 		/// <value>
-		///   <c>true</c> if this instance is alive; otherwise, <c>false</c>.
+		///     <c>true</c> if this instance is alive; otherwise, <c>false</c>.
 		/// </value>
 		public bool IsAlive
 		{
@@ -98,10 +98,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets the team this entity is on.
+		///     Gets the team this entity is on.
 		/// </summary>
 		/// <value>
-		/// The team.
+		///     The team.
 		/// </value>
 		public PlayerTeam Team
 		{
@@ -109,10 +109,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets the squared distance to this entity, relative to the local player.
+		///     Gets the squared distance to this entity, relative to the local player.
 		/// </summary>
 		/// <value>
-		/// The distance squared.
+		///     The distance squared.
 		/// </value>
 		public float DistanceSqr
 		{
@@ -120,10 +120,10 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
-		/// Gets the distance to this entity, relative to the local player.
+		///     Gets the distance to this entity, relative to the local player.
 		/// </summary>
 		/// <value>
-		/// The distance.
+		///     The distance.
 		/// </value>
 		public float Distance
 		{

@@ -11,26 +11,19 @@ using Orion.GlobalOffensive.Patchables;
 namespace Orion.GlobalOffensive
 {
 	/// <summary>
-	/// Manages entities within the game world.
+	///     Manages entities within the game world.
 	/// </summary>
 	public class ObjectManager : NativeObject
 	{
 		// Obtain this dynamically from the game at a later stage.
 		private readonly int _capacity;
-		private readonly int _ticksPerSecond;
-
 		// Exposed through a read-only list, users of the API won't be able to change what's going on in game anyway.
 		private readonly List<BaseEntity> _players = new List<BaseEntity>();
+		private readonly int _ticksPerSecond;
+		private DateTime _lastUpdate = DateTime.MinValue;
 
 		/// <summary>
-		/// Gets the current objects in the game world.
-		/// </summary>
-		public IReadOnlyList<BaseEntity> Players { get { return _players; } }
-
-		internal LocalPlayer LocalPlayer { get; private set; }
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ObjectManager" /> class.
+		///     Initializes a new instance of the <see cref="ObjectManager" /> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
 		/// <param name="capacity">The capacity.</param>
@@ -41,13 +34,22 @@ namespace Orion.GlobalOffensive
 			_ticksPerSecond = ticksPerSecond;
 		}
 
-		private DateTime _lastUpdate = DateTime.MinValue;
+		/// <summary>
+		///     Gets the current objects in the game world.
+		/// </summary>
+		public IReadOnlyList<BaseEntity> Players
+		{
+			get { return _players; }
+		}
+
+		internal LocalPlayer LocalPlayer { get; private set; }
+
 		public void Update()
 		{
 			// Throttle the updates a little - entities won't be changing that frequently.
 			// Realistically we don't need to call this very often at all, as we only keep references to the actual
 			// entities in the game, and only resolve their members when they're actually required.
-			if (DateTime.Now - _lastUpdate <= TimeSpan.FromMilliseconds((double)1000 / _ticksPerSecond))
+			if (DateTime.Now - _lastUpdate <= TimeSpan.FromMilliseconds((double) 1000/_ticksPerSecond))
 				return;
 
 			if (!Orion.Client.InGame)
@@ -63,17 +65,18 @@ namespace Orion.GlobalOffensive
 			// but consider updating this in the future.
 			_players.Clear();
 
-			var localPlayerPtr = Orion.Memory.Read<IntPtr>(Orion.ClientBase + (int)BaseOffsets.LocalPlayer);
+			var localPlayerPtr = Orion.Memory.Read<IntPtr>(Orion.ClientBase + (int) BaseOffsets.LocalPlayer);
 
 			LocalPlayer = new LocalPlayer(localPlayerPtr);
 
 			// TODO: Actually get the num nodes in the entity list
-			for (int i = 0; i < _capacity; i++)
+			for (var i = 0; i < _capacity; i++)
 			{
 				_players.Add(new BaseEntity(GetEntityPtr(i)));
 			}
 
-			Trace.WriteLine(string.Format("[EntityManager] Update complete. {0} valid entries found.", Players.Count(s => s.IsValid)));
+			Trace.WriteLine(string.Format("[EntityManager] Update complete. {0} valid entries found.",
+				Players.Count(s => s.IsValid)));
 
 
 			_lastUpdate = DateTime.Now;
@@ -82,11 +85,11 @@ namespace Orion.GlobalOffensive
 		private IntPtr GetEntityPtr(int index)
 		{
 			// ptr = entityList + (idx * size)
-			return Orion.Memory.Read<IntPtr>(BaseAddress + (index * (int)StaticOffsets.EntitySize));
+			return Orion.Memory.Read<IntPtr>(BaseAddress + (index*(int) StaticOffsets.EntitySize));
 		}
 
 		/// <summary>
-		/// Gets the player with the specified ID, and null if that player doesn't exist.
+		///     Gets the player with the specified ID, and null if that player doesn't exist.
 		/// </summary>
 		/// <param name="id">The identifier.</param>
 		/// <returns></returns>
