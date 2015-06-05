@@ -24,7 +24,7 @@ namespace Orion.GlobalOffensive
 		/// <summary>
 		///     Gets the local player.
 		/// </summary>
-		public static LocalPlayer Me { get; private set; }
+		public static LocalPlayer Me { get { return Objects.LocalPlayer; } }
 
 		/// <summary>
 		///     Gets the current object manager.
