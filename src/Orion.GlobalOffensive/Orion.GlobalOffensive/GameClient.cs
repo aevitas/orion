@@ -31,6 +31,12 @@ namespace Orion.GlobalOffensive
 			get { return ReadField<int>(StaticOffsets.LocalPlayerIndex); }
 		}
 
+		/// <summary>
+		///     Gets the state of the game client.
+		/// </summary>
+		/// <value>
+		///     The state.
+		/// </value>
 		public SignonState State
 		{
 			get { return (SignonState) ReadField<int>(StaticOffsets.GameState); }

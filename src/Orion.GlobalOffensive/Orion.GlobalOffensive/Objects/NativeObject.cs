@@ -55,6 +55,9 @@ namespace Orion.GlobalOffensive.Objects
 		/// <returns></returns>
 		protected T ReadField<T>(int offset) where T : struct
 		{
+			// We don't check for IsValid here because reading even on an invalid object would
+			// not directly be an invalid operation - the read operation will throw an exception later down the line.
+
 			return Orion.Memory.Read<T>(BaseAddress + offset);
 		}
 

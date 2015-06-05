@@ -44,8 +44,19 @@ namespace Orion.GlobalOffensive
 
 		internal LocalPlayer LocalPlayer { get; private set; }
 
+		/// <summary>
+		///     Updates the ObjectManager, obtaining all player entities from the game and adding them to the Players list.
+		/// </summary>
+		/// <exception cref="System.InvalidOperationException">
+		///     Can not update the ObjectManager when it's not properly initialized!
+		///     Are you sure BaseAddress is valid?
+		/// </exception>
 		public void Update()
 		{
+			if (!IsValid)
+				throw new InvalidOperationException(
+					"Can not update the ObjectManager when it's not properly initialized! Are you sure BaseAddress is valid?");
+
 			// Throttle the updates a little - entities won't be changing that frequently.
 			// Realistically we don't need to call this very often at all, as we only keep references to the actual
 			// entities in the game, and only resolve their members when they're actually required.
