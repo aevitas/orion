@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Orion.GlobalOffensive.Test
 {
@@ -19,7 +20,7 @@ namespace Orion.GlobalOffensive.Test
 
 				Console.WriteLine("State: {0}\n\n", Orion.Client.State);
 
-				if (Orion.Client.InGame)
+				if (Orion.Client.InGame && Orion.Me != null && Orion.Me.IsValid)
 				{
 					var me = Orion.Me;
 					Console.WriteLine("ID:\t\t{0}", me.Id);
@@ -27,7 +28,11 @@ namespace Orion.GlobalOffensive.Test
 					Console.WriteLine("Position:\t{0}", me.Position);
 					Console.WriteLine("Team:\t\t{0}", me.Team);
 					Console.WriteLine("ObjectCount:\t{0}", Orion.Objects.Players.Count);
+
+					Console.WriteLine("Weapon:\t{0}", me.CurrentWeapon);
 				}
+
+				Thread.Sleep(500);
 			}
 		}
 	}
