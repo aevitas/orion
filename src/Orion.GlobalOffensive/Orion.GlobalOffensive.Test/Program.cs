@@ -29,7 +29,8 @@ namespace Orion.GlobalOffensive.Test
 					Console.WriteLine("Team:\t\t{0}", me.Team);
 					Console.WriteLine("ObjectCount:\t{0}", Orion.Objects.Players.Count);
 
-					Console.WriteLine("Weapon:\t{0}", me.CurrentWeapon);
+					var t = me.Target;
+					Console.WriteLine("Target:\t{0}", t != null ? t.Id.ToString() : "none");
 				}
 
 				Thread.Sleep(500);

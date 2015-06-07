@@ -98,6 +98,17 @@ namespace Orion.GlobalOffensive.Objects
 		}
 
 		/// <summary>
+		/// Gets a value indicating whether this instance is friendly.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if this instance is friendly; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsFriendly
+		{
+			get { return Team == Orion.Me.Team; }
+		}
+
+		/// <summary>
 		///     Gets the team this entity is on.
 		/// </summary>
 		/// <value>

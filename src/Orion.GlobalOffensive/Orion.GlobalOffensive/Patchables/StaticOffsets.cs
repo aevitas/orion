@@ -15,6 +15,7 @@ namespace Orion.GlobalOffensive.Patchables
 		Index = 0x64,
 		Flags = 0x100,
 		LifeState = 0x25B,
+		CrosshairId = 0x2410,
 
 		// GameClient
 		LocalPlayerIndex = 0x160,

@@ -2,6 +2,7 @@
 // See the file LICENSE for copying permission.
 
 using System;
+using System.Linq;
 using System.Numerics;
 using Orion.GlobalOffensive.Patchables;
 
@@ -29,6 +30,34 @@ namespace Orion.GlobalOffensive.Objects
 		public Matrix4x4 ViewMatrix
 		{
 			get { return ReadField<Matrix4x4>(BaseOffsets.ViewMatrix); }
+		}
+
+		/// <summary>
+		/// Gets the player ID for the player currently under the player's crosshair, and 0 if none.
+		/// </summary>
+		public int CrosshairId
+		{
+			get { return ReadField<int>(StaticOffsets.CrosshairId); }
+		}
+
+		/// <summary>
+		/// Gets the target the local player is currently aiming at, or null if none.
+		/// </summary>
+		public BaseEntity Target
+		{
+			get
+			{
+				// Store this in a local variable - the crosshair ID will get updated *very* frequently, 
+				// to the point where we can't be sure that by the time we make a call to FirstOrDefault, it'll
+				// still be "valid" according to the check before it. (Value can change on a per-frame basis)
+				// This way, at least we'll be sure that for the execution of this function, we maintain the same value.
+				int id = CrosshairId;
+
+				if (CrosshairId <= 0)
+					return null;
+
+				return Orion.Objects.Players.FirstOrDefault(p => p.Id == id - 1);
+			}
 		}
 	}
 }
