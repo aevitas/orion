@@ -9,7 +9,7 @@ namespace Orion.GlobalOffensive.Test
 		private static void Main(string[] args)
 		{
 			Console.Title = "Orion.GlobalOffensive";
-			var proc = Process.GetProcessesByName("csgo")[0];
+			var proc = Process.GetProcessesByName("outlook")[0];
 
 			Orion.Attach(proc);
 
