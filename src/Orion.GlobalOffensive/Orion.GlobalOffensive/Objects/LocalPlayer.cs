@@ -27,18 +27,12 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The view matrix.
 		/// </value>
-		public Matrix4x4 ViewMatrix
-		{
-			get { return ReadField<Matrix4x4>(BaseOffsets.ViewMatrix); }
-		}
+		public Matrix4x4 ViewMatrix => ReadField<Matrix4x4>(BaseOffsets.ViewMatrix);
 
 		/// <summary>
 		/// Gets the player ID for the player currently under the player's crosshair, and 0 if none.
 		/// </summary>
-		public int CrosshairId
-		{
-			get { return ReadField<int>(StaticOffsets.CrosshairId); }
-		}
+		public int CrosshairId => ReadField<int>(StaticOffsets.CrosshairId);
 
 		/// <summary>
 		/// Gets the target the local player is currently aiming at, or null if none.

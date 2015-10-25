@@ -26,10 +26,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The identifier.
 		/// </value>
-		public int Id
-		{
-			get { return ReadField<int>(StaticOffsets.Index); }
-		}
+		public int Id => ReadField<int>(StaticOffsets.Index);
 
 		/// <summary>
 		///     Gets this entity's position.
@@ -37,10 +34,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The position.
 		/// </value>
-		public Vector3 Position
-		{
-			get { return ReadField<Vector3>(StaticOffsets.Position); }
-		}
+		public Vector3 Position => ReadField<Vector3>(StaticOffsets.Position);
 
 		/// <summary>
 		///     Gets this entity's health.
@@ -48,10 +42,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The health.
 		/// </value>
-		public int Health
-		{
-			get { return ReadField<int>(StaticOffsets.Health); }
-		}
+		public int Health => ReadField<int>(StaticOffsets.Health);
 
 		/// <summary>
 		///     Gets this entity's armor.
@@ -59,10 +50,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The armor.
 		/// </value>
-		public int Armor
-		{
-			get { return ReadField<int>(StaticOffsets.Armor); }
-		}
+		public int Armor => ReadField<int>(StaticOffsets.Armor);
 
 		/// <summary>
 		///     Gets the entity's flags.
@@ -70,10 +58,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The flags.
 		/// </value>
-		public int Flags
-		{
-			get { return ReadField<int>(StaticOffsets.Flags); }
-		}
+		public int Flags => ReadField<int>(StaticOffsets.Flags);
 
 		/// <summary>
 		///     Gets a value indicating whether this entity is dormant.
@@ -81,10 +66,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     <c>true</c> if this instance is dormant; otherwise, <c>false</c>.
 		/// </value>
-		public bool IsDormant
-		{
-			get { return ReadField<int>(StaticOffsets.Dormant) == 1; }
-		}
+		public bool IsDormant => ReadField<int>(StaticOffsets.Dormant) == 1;
 
 		/// <summary>
 		///     Gets a value indicating whether this entity is alive.
@@ -92,10 +74,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     <c>true</c> if this instance is alive; otherwise, <c>false</c>.
 		/// </value>
-		public bool IsAlive
-		{
-			get { return ReadField<byte>(StaticOffsets.LifeState) == 0; }
-		}
+		public bool IsAlive => ReadField<byte>(StaticOffsets.LifeState) == 0;
 
 		/// <summary>
 		/// Gets a value indicating whether this instance is friendly.
@@ -103,10 +82,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		/// <c>true</c> if this instance is friendly; otherwise, <c>false</c>.
 		/// </value>
-		public bool IsFriendly
-		{
-			get { return Team == Orion.Me.Team; }
-		}
+		public bool IsFriendly => Team == Orion.Me.Team;
 
 		/// <summary>
 		///     Gets the team this entity is on.
@@ -114,10 +90,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The team.
 		/// </value>
-		public PlayerTeam Team
-		{
-			get { return (PlayerTeam) ReadField<int>(StaticOffsets.Team); }
-		}
+		public PlayerTeam Team => (PlayerTeam) ReadField<int>(StaticOffsets.Team);
 
 		/// <summary>
 		///     Gets the squared distance to this entity, relative to the local player.
@@ -125,10 +98,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The distance squared.
 		/// </value>
-		public float DistanceSqr
-		{
-			get { return Vector3.DistanceSquared(Orion.Me.Position, Position); }
-		}
+		public float DistanceSqr => Vector3.DistanceSquared(Orion.Me.Position, Position);
 
 		/// <summary>
 		///     Gets the distance to this entity, relative to the local player.
@@ -136,9 +106,6 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     The distance.
 		/// </value>
-		public float Distance
-		{
-			get { return Vector3.Distance(Orion.Me.Position, Position); }
-		}
+		public float Distance => Vector3.Distance(Orion.Me.Position, Position);
 	}
 }

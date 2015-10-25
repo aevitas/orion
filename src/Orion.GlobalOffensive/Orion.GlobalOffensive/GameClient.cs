@@ -26,10 +26,7 @@ namespace Orion.GlobalOffensive
 		/// <value>
 		///     The index of the local player.
 		/// </value>
-		public int LocalPlayerIndex
-		{
-			get { return ReadField<int>(StaticOffsets.LocalPlayerIndex); }
-		}
+		public int LocalPlayerIndex => ReadField<int>(StaticOffsets.LocalPlayerIndex);
 
 		/// <summary>
 		///     Gets the state of the game client.
@@ -37,10 +34,7 @@ namespace Orion.GlobalOffensive
 		/// <value>
 		///     The state.
 		/// </value>
-		public SignonState State
-		{
-			get { return (SignonState) ReadField<int>(StaticOffsets.GameState); }
-		}
+		public SignonState State => (SignonState) ReadField<int>(StaticOffsets.GameState);
 
 		/// <summary>
 		///     Gets a value indicating whether [in game].
@@ -48,10 +42,7 @@ namespace Orion.GlobalOffensive
 		/// <value>
 		///     <c>true</c> if [in game]; otherwise, <c>false</c>.
 		/// </value>
-		public bool InGame
-		{
-			get { return State == SignonState.Full; }
-		}
+		public bool InGame => State == SignonState.Full;
 
 		/// <summary>
 		///     Gets a value indicating whether [in menu].
@@ -59,9 +50,6 @@ namespace Orion.GlobalOffensive
 		/// <value>
 		///     <c>true</c> if [in menu]; otherwise, <c>false</c>.
 		/// </value>
-		public bool InMenu
-		{
-			get { return State == SignonState.None; }
-		}
+		public bool InMenu => State == SignonState.None;
 	}
 }

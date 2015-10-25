@@ -23,7 +23,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <summary>
 		///     Gets the base address of this object in the remote process.
 		/// </summary>
-		public IntPtr BaseAddress { get; private set; }
+		public IntPtr BaseAddress { get; }
 
 		/// <summary>
 		///     Gets a value indicating whether this instance is valid.
@@ -31,10 +31,7 @@ namespace Orion.GlobalOffensive.Objects
 		/// <value>
 		///     <c>true</c> if this instance is valid; otherwise, <c>false</c>.
 		/// </value>
-		public bool IsValid
-		{
-			get { return BaseAddress != IntPtr.Zero; }
-		}
+		public bool IsValid => BaseAddress != IntPtr.Zero;
 
 		/// <summary>
 		///     Returns a hash code for this instance.

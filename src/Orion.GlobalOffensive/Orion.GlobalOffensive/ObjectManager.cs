@@ -37,10 +37,7 @@ namespace Orion.GlobalOffensive
 		/// <summary>
 		///     Gets the current objects in the game world.
 		/// </summary>
-		public IReadOnlyList<BaseEntity> Players
-		{
-			get { return _players; }
-		}
+		public IReadOnlyList<BaseEntity> Players => _players;
 
 		internal LocalPlayer LocalPlayer { get; private set; }
 
@@ -86,8 +83,7 @@ namespace Orion.GlobalOffensive
 				_players.Add(new BaseEntity(GetEntityPtr(i)));
 			}
 
-			Trace.WriteLine(string.Format("[EntityManager] Update complete. {0} valid entries found.",
-				Players.Count(s => s.IsValid)));
+			Trace.WriteLine($"[EntityManager] Update complete. {Players.Count(s => s.IsValid)} valid entries found.");
 
 
 			_lastUpdate = DateTime.Now;
