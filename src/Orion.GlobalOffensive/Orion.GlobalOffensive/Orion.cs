@@ -4,6 +4,8 @@
 using System;
 using System.Diagnostics;
 using BlueRain;
+using log4net;
+using Orion.Common;
 using Orion.GlobalOffensive.Objects;
 using Orion.GlobalOffensive.Patchables;
 
@@ -14,6 +16,7 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public static class Orion
 	{
+		private static ILog _log = Log.Get();
 		private static bool _isAttached;
 
 		/// <summary>
@@ -60,14 +63,25 @@ namespace Orion.GlobalOffensive
 			ClientBase = Memory.GetModule("client.dll").BaseAddress;
 			EngineBase = Memory.GetModule("engine.dll").BaseAddress;
 
+			_log.Debug($"Client Base Address: 0x{ClientBase}");
+			_log.Debug($"Engine Base Address: 0x{EngineBase}");
+
+			_log.Info("Initializing ObjectManager..");
+
 			Objects = new ObjectManager(ClientBase + (int) BaseOffsets.EntityList, 128);
 
 			var enginePtr = Memory.Read<IntPtr>(EngineBase + (int) BaseOffsets.EnginePtr);
 
+			_log.Debug($"Engine Pointer: 0x{enginePtr}");
+
 			if (enginePtr == IntPtr.Zero)
 				throw new Exception("Couldn't find Engine Ptr - are you sure your offsets are up to date?");
 
+			_log.Info("Initializing GameClient..");
+
 			Client = new GameClient(enginePtr);
+
+			_log.Debug($"Orion attached successfully to process with ID {process.Id}.");
 
 			_isAttached = true;
 		}

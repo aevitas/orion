@@ -2,6 +2,8 @@
 // See the file LICENSE for copying permission.
 
 using System;
+using log4net;
+using Orion.Common;
 using Orion.GlobalOffensive.Objects;
 using Orion.GlobalOffensive.Patchables;
 
@@ -12,12 +14,15 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public class GameClient : NativeObject
 	{
+		private ILog _log = Log.Get();
+
 		/// <summary>
 		///     Initializes a new instance of the <see cref="GameClient" /> class.
 		/// </summary>
 		/// <param name="baseAddress">The base address.</param>
 		public GameClient(IntPtr baseAddress) : base(baseAddress)
 		{
+			_log.Info("GameClient initialized.");
 		}
 
 		/// <summary>

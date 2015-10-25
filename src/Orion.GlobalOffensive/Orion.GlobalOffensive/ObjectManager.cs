@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using log4net;
+using Orion.Common;
 using Orion.GlobalOffensive.Objects;
 using Orion.GlobalOffensive.Patchables;
 
@@ -15,6 +17,7 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public class ObjectManager : NativeObject
 	{
+		private readonly ILog _log = Log.Get();
 		// Obtain this dynamically from the game at a later stage.
 		private readonly int _capacity;
 		// Exposed through a read-only list, users of the API won't be able to change what's going on in game anyway.
@@ -32,6 +35,8 @@ namespace Orion.GlobalOffensive
 		{
 			_capacity = capacity;
 			_ticksPerSecond = ticksPerSecond;
+
+			_log.Info($"ObjectManager initialized. Capacity = {capacity}, TPS = {ticksPerSecond}");
 		}
 
 		/// <summary>
