@@ -9,13 +9,13 @@ namespace Orion.GlobalOffensive.Patchables
 		// Entity
 		Position = 0x134,
 		Team = 0xF0,
-		Armor = 0x23B0,
+		Armor = 0xA8A4,
 		Health = 0xFC,
 		Dormant = 0xE9,
 		Index = 0x64,
 		Flags = 0x100,
 		LifeState = 0x25B,
-		CrosshairId = 0x2410,
+		CrosshairId = 0xA904,
 
 		// GameClient
 		LocalPlayerIndex = 0x160,
