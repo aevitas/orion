@@ -9,7 +9,7 @@ namespace Orion.GlobalOffensive.Patchables
 		// Entity
 		Position = 0x134,
 		Team = 0xF0,
-		Armor = 0x8C84,
+		Armor = 0xA8A4,
 		Health = 0xFC,
 		Dormant = 0xE9,
 		Index = 0x64,
