@@ -50,7 +50,7 @@ namespace Orion.GlobalOffensive.Objects
 				if (CrosshairId <= 0)
 					return null;
 
-				return Orion.Objects.Players.FirstOrDefault(p => p.Id == id - 1);
+				return Orion.Objects.Players.FirstOrDefault(p => p.Id == id);
 			}
 		}
 	}
