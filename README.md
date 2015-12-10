@@ -9,7 +9,7 @@ Project goals:
 
 # requirements
 
-* Visual Studio 2013 or later
+* Visual Studio 2013 update 5 or later. This library uses C# 6 language features, and therefore requires an up to date compiler.
 * .NET 4.5.1
 * [System.Numerics.Vectors](https://msdn.microsoft.com/en-us/library/dn858218%28v=vs.111%29.aspx) is required for Vectors and Matrices. A copy of the library can be obtained via NuGet and is included in Orion when built.
 * [BlueRain](https://github.com/aevitas/bluerain) is required for the memory manipulation that makes the entire project possible in the first place. A binary is included in the `libs` directory, compilation from source is optional.
