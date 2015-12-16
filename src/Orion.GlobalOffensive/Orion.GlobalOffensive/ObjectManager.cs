@@ -63,7 +63,7 @@ namespace Orion.GlobalOffensive
 			// Throttle the updates a little - entities won't be changing that frequently.
 			// Realistically we don't need to call this very often at all, as we only keep references to the actual
 			// entities in the game, and only resolve their members when they're actually required.
-			if (timeStamp - _lastUpdate < TimeSpan.FromSeconds(1))
+			if (timeStamp - _lastUpdate < TimeSpan.FromMilliseconds(1000 / _ticksPerSecond))
 				return;
 
 			if (!Orion.Client.InGame)
