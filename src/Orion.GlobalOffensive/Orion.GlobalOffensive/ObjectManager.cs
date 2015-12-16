@@ -17,9 +17,9 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public class ObjectManager : NativeObject
 	{
-		private readonly ILog _log = Log.Get();
 		// Obtain this dynamically from the game at a later stage.
 		private readonly int _capacity;
+		private readonly ILog _log = Log.Get();
 		// Exposed through a read-only list, users of the API won't be able to change what's going on in game anyway.
 		private readonly List<BaseEntity> _players = new List<BaseEntity>();
 		private readonly int _ticksPerSecond;
@@ -63,7 +63,7 @@ namespace Orion.GlobalOffensive
 			// Throttle the updates a little - entities won't be changing that frequently.
 			// Realistically we don't need to call this very often at all, as we only keep references to the actual
 			// entities in the game, and only resolve their members when they're actually required.
-			if (timeStamp - _lastUpdate < TimeSpan.FromMilliseconds(1000 / _ticksPerSecond))
+			if (timeStamp - _lastUpdate < TimeSpan.FromMilliseconds(1000/_ticksPerSecond))
 				return;
 
 			if (!Orion.Client.InGame)
@@ -98,7 +98,7 @@ namespace Orion.GlobalOffensive
 		private IntPtr GetEntityPtr(int index)
 		{
 			// ptr = entityList + (idx * size)
-			return Orion.Memory.Read<IntPtr>(BaseAddress + (index*(int) StaticOffsets.EntitySize));
+			return Orion.Memory.Read<IntPtr>(BaseAddress + index*(int) StaticOffsets.EntitySize);
 		}
 
 		/// <summary>

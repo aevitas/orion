@@ -14,7 +14,7 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public class GameClient : NativeObject
 	{
-		private ILog _log = Log.Get();
+		private readonly ILog _log = Log.Get();
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="GameClient" /> class.

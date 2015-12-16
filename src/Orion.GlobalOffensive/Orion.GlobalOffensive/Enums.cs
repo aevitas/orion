@@ -8,7 +8,7 @@ namespace Orion.GlobalOffensive
 		Neutral = 1,
 		Terrorist = 2,
 		CounterTerrorist = 3
-	};
+	}
 
 	public enum SignonState
 	{

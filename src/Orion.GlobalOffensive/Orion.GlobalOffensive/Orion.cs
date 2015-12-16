@@ -16,7 +16,7 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public static class Orion
 	{
-		private static ILog _log = Log.Get();
+		private static readonly ILog _log = Log.Get();
 		private static bool _isAttached;
 
 		/// <summary>

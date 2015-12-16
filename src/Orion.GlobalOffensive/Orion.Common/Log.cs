@@ -1,4 +1,7 @@
-﻿using System.Diagnostics;
+﻿// Copyright (C) 2015 aevitas
+// See the file LICENSE for copying permission.
+
+using System.Diagnostics;
 using log4net;
 using log4net.Core;
 
@@ -7,7 +10,7 @@ namespace Orion.Common
 	public static class Log
 	{
 		/// <summary>
-		/// Gets a logging instance for the calling type.
+		///     Gets a logging instance for the calling type.
 		/// </summary>
 		/// <returns></returns>
 		public static ILog Get()

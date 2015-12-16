@@ -77,10 +77,10 @@ namespace Orion.GlobalOffensive.Objects
 		public bool IsAlive => ReadField<byte>(StaticOffsets.LifeState) == 0;
 
 		/// <summary>
-		/// Gets a value indicating whether this instance is friendly.
+		///     Gets a value indicating whether this instance is friendly.
 		/// </summary>
 		/// <value>
-		/// <c>true</c> if this instance is friendly; otherwise, <c>false</c>.
+		///     <c>true</c> if this instance is friendly; otherwise, <c>false</c>.
 		/// </value>
 		public bool IsFriendly => Team == Orion.Me.Team;
 
