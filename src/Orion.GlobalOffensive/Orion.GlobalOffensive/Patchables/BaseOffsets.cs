@@ -4,11 +4,12 @@
 namespace Orion.GlobalOffensive.Patchables
 {
 	// Offsets that change at least once per build, and are platform specific.
-	public enum BaseOffsets
+	public enum BaseOffsets : uint
 	{
-		ViewMatrix = 0x4a4a394,
-		EntityList = 0x4a58784,
-		EnginePtr = 0x6062c4,
-		LocalPlayer = 0xa6a444
+		ViewMatrix = 0x4a4c4a4,
+		EntityList = 0x4a5a8e4,
+		// In most dumpers, this is called ClientState
+		EnginePtr = 0x6062b4,
+		LocalPlayer = 0xa6c49c
 	}
 }
