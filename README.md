@@ -1,3 +1,5 @@
+![Build Status](https://ci.appveyor.com/api/projects/status/github/aevitas/orion?branch=master&svg=true)
+
 # orion
 Managed game manipulation framework for Counter Strike: Global Offensive in C#
 
