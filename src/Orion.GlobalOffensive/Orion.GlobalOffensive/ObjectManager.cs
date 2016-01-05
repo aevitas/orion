@@ -40,9 +40,9 @@ namespace Orion.GlobalOffensive
 		}
 
 		/// <summary>
-		///     Gets the current objects in the game world.
+		///     Gets the current valid objects in the game world.
 		/// </summary>
-		public IReadOnlyList<BaseEntity> Players => _players;
+		public IReadOnlyList<BaseEntity> Players => _players.Where(p => p.IsValid).ToList();
 
 		internal LocalPlayer LocalPlayer { get; private set; }
 
