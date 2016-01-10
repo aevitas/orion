@@ -17,8 +17,6 @@ namespace Orion.GlobalOffensive
 	/// </summary>
 	public class ObjectManager : NativeObject
 	{
-		// Obtain this dynamically from the game at a later stage.
-		private readonly int _capacity;
 		private readonly ILog _log = Log.Get();
 		// Exposed through a read-only list, users of the API won't be able to change what's going on in game anyway.
 		private readonly List<BaseEntity> _players = new List<BaseEntity>();
@@ -33,7 +31,6 @@ namespace Orion.GlobalOffensive
 		/// <param name="ticksPerSecond">The ticks per second.</param>
 		public ObjectManager(IntPtr baseAddress, int capacity, int ticksPerSecond = 10) : base(baseAddress)
 		{
-			_capacity = capacity;
 			_ticksPerSecond = ticksPerSecond;
 
 			_log.Info($"ObjectManager initialized. Capacity = {capacity}, TPS = {ticksPerSecond}");
@@ -83,8 +80,8 @@ namespace Orion.GlobalOffensive
 
 			LocalPlayer = new LocalPlayer(localPlayerPtr);
 
-			// TODO: Actually get the num nodes in the entity list
-			for (var i = 0; i < _capacity; i++)
+			var capacity = Orion.Memory.Read<int>(Orion.ClientBase + Offsets.EntityList + 0x4);
+			for (var i = 0; i < capacity; i++)
 			{
 				_players.Add(new BaseEntity(GetEntityPtr(i)));
 			}
