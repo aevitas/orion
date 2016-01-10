@@ -80,7 +80,7 @@ namespace Orion.GlobalOffensive
 
 			LocalPlayer = new LocalPlayer(localPlayerPtr);
 
-			var capacity = Orion.Memory.Read<int>(Orion.ClientBase + BaseOffsets.EntityList + 0x4);
+			var capacity = Orion.Memory.Read<int>(Orion.ClientBase + (int) BaseOffsets.EntityList + 0x4);
 			for (var i = 0; i < capacity; i++)
 			{
 				_players.Add(new BaseEntity(GetEntityPtr(i)));
