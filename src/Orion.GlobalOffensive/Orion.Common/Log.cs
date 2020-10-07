@@ -1,49 +1,25 @@
 ﻿// Copyright (C) 2015 aevitas
 // See the file LICENSE for copying permission.
 
-using System.Diagnostics;
-using log4net;
-using log4net.Core;
+using Microsoft.Extensions.Logging;
 
 namespace Orion.Common
 {
 	public static class Log
-	{
+    {
+        private static readonly ILoggerFactory _loggerFactory;
+
+        static Log()
+        {
+            _loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+        }
+
 		/// <summary>
 		///     Gets a logging instance for the calling type.
 		/// </summary>
 		/// <returns></returns>
-		public static ILog Get()
-		{
-			return LogManager.GetLogger(new StackTrace().GetFrames()[1].GetMethod().DeclaringType);
-		}
-	}
+		public static ILogger<T> Get<T>() =>  _loggerFactory.CreateLogger<T>();
 
-	public static class LogExtensions
-	{
-		public static void LogFormatted(this ILog log, Level level, string message, params object[] args)
-		{
-			log.Logger.Log(null, level, string.Format(message, args), null);
-		}
-
-		public static void NoticeFormat(this ILog log, string message, params object[] args)
-		{
-			log.LogFormatted(Level.Notice, message, args);
-		}
-
-		public static void InfoFormat(this ILog log, string message, params object[] args)
-		{
-			log.LogFormatted(Level.Info, message, args);
-		}
-
-		public static void WarningFormat(this ILog log, string message, params object[] args)
-		{
-			log.LogFormatted(Level.Warn, message, args);
-		}
-
-		public static void TraceFormat(this ILog log, string message, params object[] args)
-		{
-			log.LogFormatted(Level.Trace, message, args);
-		}
-	}
+        public static ILogger Get() => _loggerFactory.CreateLogger("General");
+    }
 }
