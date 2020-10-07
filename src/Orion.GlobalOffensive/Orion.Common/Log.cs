@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2015 aevitas
+﻿// Copyright (C) 2015-2020 aevitas
 // See the file LICENSE for copying permission.
 
 using Microsoft.Extensions.Logging;
